@@ -10,17 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            font-family: 'Inter', sans-serif;
-        }
+        * { font-family: 'Inter', sans-serif; }
 
-        /* Fundo gradiente escuro da hero com grid sutil */
         .hero-bg {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             position: relative;
             overflow: hidden;
         }
-
         .hero-bg::before {
             content: '';
             position: absolute;
@@ -29,7 +25,6 @@
             opacity: 0.4;
         }
 
-        /* Texto com degradê âmbar */
         .gradient-text {
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
             -webkit-background-clip: text;
@@ -37,7 +32,6 @@
             background-clip: text;
         }
 
-        /* Hover suave para cards */
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -46,17 +40,15 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        /* Botão primário âmbar com hover de escala */
         .btn-primary {
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             transition: all 0.3s ease;
         }
         .btn-primary:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 10px 30px rgba(251,191,36,0.3);
         }
 
-        /* Animação de flutuação para a foto da hero */
         .floating {
             animation: float 6s ease-in-out infinite;
         }
@@ -66,31 +58,28 @@
             100% { transform: translateY(0px); }
         }
 
-        /* Efeito de vidro para badge da hero */
         .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Cards de serviço com borda suave */
         .service-card {
             background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid rgba(226, 232, 240, 0.8);
+            border: 1px solid rgba(226,232,240,0.8);
         }
 
-        /* Cards de depoimento com borda esquerda âmbar */
         .testimonial-card {
             background: white;
             border-left: 4px solid #fbbf24;
         }
 
-        /* Garante que números do contador não pulem de largura */
         .stat-number {
             font-variant-numeric: tabular-nums;
         }
 
-        /* Menu mobile: oculto por padrão, desliza da direita */
+        .smooth-scroll { scroll-behavior: smooth; }
+
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
@@ -99,13 +88,11 @@
             transform: translateX(0);
         }
 
-        /* Estado inicial dos elementos com animação de reveal */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
         }
 
-        /* Blobs decorativos com movimento suave */
         .blob {
             position: absolute;
             filter: blur(80px);
@@ -113,22 +100,17 @@
             animation: move 20s infinite alternate;
         }
         @keyframes move {
-            from { transform: translate(0, 0) scale(1); }
-            to   { transform: translate(50px, -50px) scale(1.1); }
+            from { transform: translate(0,0) scale(1); }
+            to   { transform: translate(50px,-50px) scale(1.1); }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased smooth-scroll">
 
-    <!-- ============================================================
-         NAVEGAÇÃO FIXA
-         Transparente no topo; ganha fundo branco ao rolar a página
-    ============================================================ -->
+    <!-- NAVBAR -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-
-                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-2">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
                         <i class="fas fa-dumbbell"></i>
@@ -136,19 +118,17 @@
                     <span class="font-bold text-xl text-white tracking-tight" id="nav-logo-text">ALE MANCILHA</span>
                 </div>
 
-                <!-- Links desktop -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio"     class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Início</a>
-                    <a href="#sobre"      class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Sobre</a>
-                    <a href="#servicos"   class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Serviços</a>
-                    <a href="#resultados" class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Resultados</a>
-                    <a href="#depoimentos"class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Depoimentos</a>
-                    <a href="#contato"    class="btn-primary px-6 py-2.5 rounded-full text-slate-900 font-semibold text-sm">
+                    <a href="#inicio"      class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Início</a>
+                    <a href="#sobre"       class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Sobre</a>
+                    <a href="#servicos"    class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Serviços</a>
+                    <a href="#resultados"  class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Resultados</a>
+                    <a href="#depoimentos" class="text-slate-300 hover:text-amber-400 font-medium transition-colors">Depoimentos</a>
+                    <a href="#contato"     class="btn-primary px-6 py-2.5 rounded-full text-slate-900 font-semibold text-sm">
                         Agendar Consulta
                     </a>
                 </div>
 
-                <!-- Botão hamburger mobile -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-white hover:text-amber-400 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -157,11 +137,10 @@
             </div>
         </div>
 
-        <!-- Menu mobile: painel lateral direito -->
         <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 md:hidden">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-8">
-                    <span class="font-bold text-xl text-slate-900">Menu</span>
+                    <span class="font-bold text-xl text-slate-800">Menu</span>
                     <button id="close-menu" class="text-slate-600 hover:text-slate-900">
                         <i class="fas fa-times text-2xl"></i>
                     </button>
@@ -178,163 +157,125 @@
         </div>
     </nav>
 
-    <!-- ============================================================
-         HERO SECTION
-         Ordem: badge → título → texto → PROVA SOCIAL → CTA
-         Prova social antes do CTA é o principal ajuste de conversão
-    ============================================================ -->
+    <!-- HERO -->
     <section id="inicio" class="hero-bg min-h-screen flex items-center relative pt-20">
-
-        <!-- Blobs decorativos de fundo -->
         <div class="blob bg-amber-500 w-96 h-96 rounded-full top-0 left-0"></div>
         <div class="blob bg-orange-500 w-80 h-80 rounded-full bottom-0 right-0"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-                <!-- Coluna esquerda: copy -->
                 <div class="text-white space-y-8 reveal">
-
-                    <!-- Badge de categoria -->
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect text-amber-300 text-sm font-semibold">
                         <span class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></span>
                         Consultoria Esportiva Premium
                     </div>
 
-                    <!-- Headline principal -->
                     <h1 class="text-5xl md:text-7xl font-black leading-tight">
                         Transforme seu <br>
                         <span class="gradient-text">Corpo e Mente</span>
                     </h1>
 
-                    <!-- Subtítulo -->
                     <p class="text-xl text-slate-300 leading-relaxed max-w-lg">
                         Consultoria esportiva de alta performance para quem trabalha muito,
                         mas se recusa a ter um corpo mediano.
                     </p>
 
-                    <!-- PROVA SOCIAL — posicionada ANTES do CTA para gerar confiança primeiro -->
-                    <div class="flex items-center gap-6 pt-2">
-                        <!-- Avatares empilhados de clientes -->
+                    <!-- Prova social ANTES do CTA -->
+                    <div class="flex items-center gap-6">
                         <div class="flex -space-x-4">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
-                                 class="w-12 h-12 rounded-full border-2 border-slate-800 object-cover" alt="Cliente">
+                                 class="w-12 h-12 rounded-full border-2 border-slate-700 object-cover" alt="Cliente">
                             <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop"
-                                 class="w-12 h-12 rounded-full border-2 border-slate-800 object-cover" alt="Cliente">
+                                 class="w-12 h-12 rounded-full border-2 border-slate-700 object-cover" alt="Cliente">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-                                 class="w-12 h-12 rounded-full border-2 border-slate-800 object-cover" alt="Cliente">
-                            <div class="w-12 h-12 rounded-full border-2 border-slate-800 bg-amber-500 flex items-center justify-center text-slate-900 font-bold text-xs">+50</div>
+                                 class="w-12 h-12 rounded-full border-2 border-slate-700 object-cover" alt="Cliente">
+                            <div class="w-12 h-12 rounded-full border-2 border-slate-700 bg-amber-500 flex items-center justify-center text-slate-900 font-bold text-xs">+50</div>
                         </div>
-                        <!-- Texto de reforço social -->
                         <div class="text-sm text-slate-400 leading-snug">
-                            <span class="text-white font-semibold">+50 pessoas comuns</span><br>
-                            já transformaram corpo e rotina<br>com o método Team Hard.
+                            <span class="text-white font-semibold block">+50 pessoas comuns</span>
+                            já transformaram corpo e rotina<br>com o método Team Hard
                         </div>
                     </div>
 
-                    <!-- CTA principal — único, direto, com micro-copy de segurança -->
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+                    <!-- CTA principal -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
                         <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-slate-900 font-bold text-lg inline-flex items-center justify-center gap-2 group">
                             Começar minha transformação
                             <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <!-- Micro-copy: reduz fricção ao eliminar objeção de custo/risco -->
                         <p class="text-xs text-slate-400">
-                            Avaliação inicial gratuita.<br>Sem compromisso.
+                            Avaliação inicial gratuita, sem compromisso.
                         </p>
                     </div>
                 </div>
 
-                <!-- Coluna direita: foto + badges flutuantes (apenas desktop) -->
                 <div class="relative lg:block hidden reveal">
                     <div class="relative z-10 floating">
                         <img src="https://i.imgur.com/aVLVu8s.png"
-                             alt="Ale Mancilha — Personal Trainer"
+                             alt="Ale Mancilha — Personal Trainer Team Hard"
                              class="rounded-3xl shadow-2xl object-cover h-[600px] w-full">
 
-                        <!-- Card flutuante inferior: dado concreto no lugar de "100% sucesso" -->
                         <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl max-w-xs">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
                                     <i class="fas fa-chart-line text-xl"></i>
                                 </div>
                                 <div>
-                                    <!-- Substituído "100% Taxa de Sucesso" por dado mais específico e crível -->
-                                    <p class="text-xs text-slate-500 leading-tight">Clientes acompanhados<br>por 3+ meses</p>
-                                    <p class="text-xl font-bold text-slate-800">100% evoluíram</p>
+                                    <p class="text-xs text-slate-500 leading-tight">Alunos com 3+ meses</p>
+                                    <p class="text-xl font-bold text-slate-800">100% em evolução</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Badge superior: experiência -->
                         <div class="absolute -top-4 -right-4 bg-amber-500 text-slate-900 rounded-2xl p-4 shadow-xl">
                             <p class="text-3xl font-black">7+</p>
                             <p class="text-xs font-semibold">Anos de<br>Experiência</p>
                         </div>
                     </div>
-
-                    <!-- Elemento decorativo atrás da foto -->
                     <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-orange-500/20 rounded-3xl transform rotate-3 -z-10"></div>
                 </div>
+
             </div>
         </div>
 
-        <!-- Seta de scroll incentivando o visitante a continuar -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
             <i class="fas fa-chevron-down text-2xl"></i>
         </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO DE NÚMEROS (STATS)
-         Bug corrigido: contador agora usa data-suffix para exibir %
-         sem ficar preso em "0" ou truncar o símbolo
-    ============================================================ -->
+    <!-- STATS -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-
                 <div class="text-center reveal">
-                    <!-- data-target: valor numérico final | data-suffix: caractere exibido após o número -->
                     <div class="text-4xl md:text-5xl font-black text-amber-500 stat-number mb-2"
                          data-target="50" data-suffix="+">0</div>
                     <p class="text-slate-600 font-medium">Clientes Atendidos</p>
                 </div>
-
                 <div class="text-center reveal">
                     <div class="text-4xl md:text-5xl font-black text-amber-500 stat-number mb-2"
                          data-target="7" data-suffix="+">0</div>
                     <p class="text-slate-600 font-medium">Anos de Experiência</p>
                 </div>
-
                 <div class="text-center reveal">
                     <div class="text-4xl md:text-5xl font-black text-amber-500 stat-number mb-2"
                          data-target="6" data-suffix="">0</div>
                     <p class="text-slate-600 font-medium">Certificações</p>
                 </div>
-
                 <div class="text-center reveal">
-                    <!-- Bug original: começava em 0 e o JS não sabia que devia exibir "%" -->
-                    <!-- Corrigido: data-suffix="%" garante a exibição correta -->
                     <div class="text-4xl md:text-5xl font-black text-amber-500 stat-number mb-2"
                          data-target="100" data-suffix="%">0</div>
-                    <p class="text-slate-600 font-medium">Satisfação</p>
+                    <p class="text-slate-600 font-medium">% Satisfação</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO SOBRE
-         Texto revisado com número real (113 kg) e bullets eliminados
-         em favor de parágrafo corrido (melhor leitura em mobile)
-    ============================================================ -->
+    <!-- SOBRE -->
     <section id="sobre" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                <!-- Coluna esquerda: bloco de fotos -->
                 <div class="relative reveal">
                     <div class="grid grid-cols-2 gap-4">
                         <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=500&fit=crop"
@@ -345,38 +286,17 @@
                     <div class="absolute -z-10 inset-0 bg-gradient-to-br from-amber-200 to-orange-200 rounded-3xl transform -rotate-3"></div>
                 </div>
 
-                <!-- Coluna direita: copy -->
                 <div class="space-y-6 reveal">
                     <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm">Sobre Mim</span>
-
                     <h2 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
                         Especialista em <span class="text-amber-500">Transformação</span> Física
                     </h2>
-
-                    <!-- Parágrafo 1: história de superação com número real (113 kg) -->
                     <p class="text-lg text-slate-600 leading-relaxed">
-                        Muito prazer, eu sou Ale Mancilha. A minha história com a transformação física
-                        não começou no topo. Eu já estive do outro lado: fui obeso e cheguei aos
-                        <strong class="text-slate-800">113 kg</strong>, sentindo na pele o peso físico e
-                        psicológico de não me reconhecer no espelho. Foi exatamente essa frustração que
-                        me moldou. Decidi que não seria mais refém do meu corpo e fui buscar o caminho
-                        definitivo — não com achismos, mas com ciência pesada. Sou treinador formado pela
-                        CBMF, com 6 certificações em treinamento e estética corporal, e vivo na pele a
-                        rotina de empresário que não tem tempo sobrando.
+                        Muito prazer, eu sou Ale Mancilha. A minha história com a transformação física não começou no topo. Eu já estive do outro lado: fui obeso e cheguei aos <strong>113 kg</strong>, sentindo na pele o peso físico e psicológico de não me reconhecer no espelho. Foi exatamente essa frustração que me moldou. Decidi que não seria mais refém do meu corpo e fui buscar o caminho definitivo — não com achismos, mas com ciência pesada. Sou treinador formado pela CBMF, com 6 certificações em treinamento e estética corporal, e vivo na pele a rotina de empresário que não tem tempo sobrando.
                     </p>
-
-                    <!-- Parágrafo 2: método e proposta de valor -->
                     <p class="text-lg text-slate-600 leading-relaxed">
-                        O Team Hard nasceu dessa união entre superação real e ciência de alto rendimento.
-                        Seja para derreter gordura (<strong class="text-slate-800">Hard Fit</strong>) ou
-                        construir volume e respeito (<strong class="text-slate-800">Hard Size</strong>),
-                        eu criei o GPS exato que eu gostaria de ter tido no meu início. Você entra com a
-                        decisão, eu entro com o mapa. Nada de protocolo genérico, nada de ctrl+C ctrl+V.
-                        Cada plano respeita sua história, sua rotina, suas limitações e seus objetivos.
-                        Bem-vindo ao time.
+                        O Team Hard nasceu dessa união entre superação real e ciência de alto rendimento. Seja para derreter gordura (Hard Fit) ou construir volume e respeito (Hard Size), eu criei o GPS exato que eu gostaria de ter tido no meu início. Você entra com a decisão, eu entro com o mapa. Nada de protocolo genérico, nada de Ctrl C + Ctrl V. Cada plano respeita sua história, sua rotina, suas limitações e seus objetivos. Bem-vindo ao time.
                     </p>
-
-                    <!-- Grid de credenciais -->
                     <div class="grid grid-cols-2 gap-6 pt-4">
                         <div class="flex items-start gap-3">
                             <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 flex-shrink-0">
@@ -392,7 +312,7 @@
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-slate-900">6 Especializações</h4>
+                                <h4 class="font-semibold text-slate-900">6 Certificações</h4>
                                 <p class="text-sm text-slate-500">Bodybuilding e Estética Corporal</p>
                             </div>
                         </div>
@@ -416,25 +336,19 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO DE SERVIÇOS
-         Adicionada âncora de preço ("a partir de R$249/mês")
-         para reduzir a ansiedade do visitante antes do CTA
-    ============================================================ -->
+    <!-- SERVIÇOS -->
     <section id="servicos" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <!-- Cabeçalho da seção com âncora de preço -->
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm">Serviços</span>
                 <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
                     Consultoria Esportiva <span class="text-amber-500">Premium</span>
                 </h2>
-                <!-- Âncora de preço: elimina o medo do "quanto vai custar?" -->
                 <p class="text-xl text-slate-600">
                     Acompanhamento profissional de alta qualidade para resultados reais e duradouros,
                     a partir de <span class="font-semibold text-amber-500">R$ 249/mês</span>.
@@ -442,30 +356,25 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Card 1: Personal Training -->
+                <!-- Personal -->
                 <div class="service-card rounded-2xl p-8 card-hover reveal group cursor-pointer">
                     <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-user-friends"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Personal Training</h3>
-                    <!-- Sem preço específico aqui: presencial varia por frequência/local -->
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Personal Training</h3>
                     <p class="text-slate-600 mb-6 leading-relaxed">
-                        Treinamento 100% individualizado, presencial em Campinas/SP.
+                        Treinamento 100% individualizado presencial em Campinas/SP.
                         Cada sessão é planejada de acordo com seus objetivos e nível atual.
                     </p>
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Avaliação física completa
+                            <i class="fas fa-check text-amber-500"></i> Avaliação física completa
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Plano de treino personalizado
+                            <i class="fas fa-check text-amber-500"></i> Plano de treino personalizado
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-amber-500"></i>
-                            Acompanhamento nutricional
+                            <i class="fas fa-check text-amber-500"></i> Acompanhamento nutricional
                         </li>
                     </ul>
                     <a href="#contato" class="inline-flex items-center gap-2 text-amber-600 font-semibold hover:gap-3 transition-all">
@@ -473,30 +382,26 @@
                     </a>
                 </div>
 
-                <!-- Card 2: Consultoria Online — com âncora de preço destacada -->
-                <div class="service-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay: 100ms;">
+                <!-- Online -->
+                <div class="service-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay:100ms;">
                     <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-laptop"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 mb-1">Consultoria Online</h3>
-                    <!-- Preço âncora no card mais procurado (atendimento mundial) -->
                     <p class="text-sm font-semibold text-amber-500 mb-4">A partir de R$ 249/mês</p>
                     <p class="text-slate-600 mb-6 leading-relaxed">
                         Acompanhamento remoto completo com aplicativo de treino,
-                        feedback de execução via vídeo e suporte contínuo — de qualquer lugar do mundo.
+                        feedback de execução via vídeo e suporte contínuo. Atendimento mundial.
                     </p>
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-blue-500"></i>
-                            App exclusivo de treinos
+                            <i class="fas fa-check text-blue-500"></i> App exclusivo de treinos
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-blue-500"></i>
-                            Análise de vídeos (biomecânica)
+                            <i class="fas fa-check text-blue-500"></i> Análise de vídeos (biomecânica)
                         </li>
                         <li class="flex items-center gap-3 text-sm text-slate-600">
-                            <i class="fas fa-check text-blue-500"></i>
-                            Suporte via WhatsApp
+                            <i class="fas fa-check text-blue-500"></i> Suporte via WhatsApp
                         </li>
                     </ul>
                     <a href="#contato" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
@@ -504,6 +409,571 @@
                     </a>
                 </div>
 
-                <!-- Card 3: Avaliação Física Presencial -->
-                <div class="service-card rounded-2
+                <!-- Avaliação Física -->
+                <div class="service-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay:200ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Avaliação Física Presencial</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Análise completa da composição corporal para traçar o ponto de partida real da sua transformação.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-green-500"></i> Bioimpedância precisa
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-green-500"></i> Análise postural
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-green-500"></i> Relatório detalhado
+                        </li>
+                    </ul>
+                    <a href="#contato" class="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
 
+                <!-- Nutrição -->
+                <div class="service-card rounded-2xl p-8 card-hover reveal group cursor-pointer" style="transition-delay:300ms;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Nutrição Esportiva</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Orientação nutricional integrada ao treino para maximizar resultados, recuperação e saúde metabólica.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-teal-500"></i> Planejamento alimentar
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-teal-500"></i> Suplementação inteligente
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600">
+                            <i class="fas fa-check text-teal-500"></i> Ajustes periódicos
+                        </li>
+                    </ul>
+                    <a href="#contato" class="inline-flex items-center gap-2 text-teal-600 font-semibold hover:gap-3 transition-all">
+                        Saiba mais <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section id="resultados" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-amber-400 font-semibold tracking-wider uppercase text-sm">Transformações Reais</span>
+                <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">
+                    Resultados que <span class="text-amber-400">Inspiram</span>
+                </h2>
+                <p class="text-xl text-slate-300">
+                    Pessoas comuns, com rotina cheia, aplicando o método Team Hard.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-2xl overflow-hidden reveal group">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://i.imgur.com/y0rYW3J.jpeg" alt="Transformação Cesar"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-4 text-sm">
+                                <div class="bg-red-500/20 text-red-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-weight mr-1"></i> -17kg
+                                </div>
+                                <div class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-clock mr-1"></i> 5 meses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cesar E.</h3>
+                        <p class="text-slate-400 text-sm mb-4">"Perdi 17kg em 5 meses e ganhei massa muscular. Meu condicionamento mudou completamente."</p>
+                        <div class="flex items-center gap-2 text-amber-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-2xl overflow-hidden reveal group" style="transition-delay:100ms;">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://i.imgur.com/fdgIQNb.jpeg" alt="Transformação Talita"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-4 text-sm">
+                                <div class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-dumbbell mr-1"></i> +8kg MM
+                                </div>
+                                <div class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-clock mr-1"></i> 6 meses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Talita S.</h3>
+                        <p class="text-slate-400 text-sm mb-4">"Consegui ganhar massa magra e definir o corpo sem perder a feminilidade. Resultado incrível!"</p>
+                        <div class="flex items-center gap-2 text-amber-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-2xl overflow-hidden reveal group" style="transition-delay:200ms;">
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="https://i.imgur.com/NsFyxoc.jpeg" alt="Transformação Alexandre"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center gap-4 text-sm">
+                                <div class="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-running mr-1"></i> Performance
+                                </div>
+                                <div class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full backdrop-blur-sm">
+                                    <i class="fas fa-clock mr-1"></i> 12 meses
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Alexandre M.</h3>
+                        <p class="text-slate-400 text-sm mb-4">"Finalmente consegui ganhar massa muscular depois de anos fracassando."</p>
+                        <div class="flex items-center gap-2 text-amber-400 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center reveal">
+                <a href="#contato" class="inline-flex items-center gap-2 bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-amber-300 transition-colors">
+                    <i class="fas fa-fire"></i>
+                    Quero minha transformação
+                </a>
+                <p class="text-slate-400 text-sm mt-3">Avaliação inicial gratuita. Sem compromisso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm">Depoimentos</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6">
+                    O que dizem meus <span class="text-amber-500">Clientes</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg reveal">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://i.imgur.com/4CZ83Oq.png" alt="Talita" class="w-14 h-14 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Talita S.</h4>
+                            <p class="text-sm text-slate-500">Empresária, 32 anos</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic">"Gostaria de agradecer o treinador Ale Mancilha pelo trabalho incrível por desenvolver meu processo de hipertrofia. Ele vai além de apenas montar um treino, ele incentiva a manter constância durante todo o processo, se colocando disponível sempre que necessário."</p>
+                </div>
+
+                <div class="testimonial-card p-8 rounded-2xl shadow-lg reveal" style="transition-delay:100ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://i.imgur.com/VrNqc2C.png" alt="Cesar" class="w-14 h-14 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-bold text-slate-900">Cesar E.</h4>
+                            <p class="text-sm text-slate-500">Pedagogo, 42 anos</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 italic">"Há 5 meses com o uso do app, eliminação em torno de 17 kg sentindo a diferença diária. Os treinos para iniciantes têm vídeos com auxílio, isso te proporciona segurança e posição correta nas execuções. Avaliações e desempenhos semanais onde conseguem ver a diferença foto/foto. Diferencial no acompanhamento das alimentações... Hoje me sinto outra pessoa."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-amber-600 font-semibold tracking-wider uppercase text-sm">FAQ</span>
+                <h2 class="text-4xl font-bold text-slate-900 mt-4">
+                    Perguntas <span class="text-amber-500">Frequentes</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors faq-btn">
+                        <span class="font-semibold text-slate-900">Como funciona a primeira avaliação?</span>
+                        <i class="fas fa-chevron-down text-amber-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 text-slate-600 bg-white faq-content">
+                        A primeira avaliação é feita com o preenchimento de anamnese completa e envio das fotos através do aplicativo. Com isso, poderei avaliar sua condição atual e desenvolver um programa específico para você.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors faq-btn">
+                        <span class="font-semibold text-slate-900">Preciso ter experiência prévia?</span>
+                        <i class="fas fa-chevron-down text-amber-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 text-slate-600 bg-white faq-content">
+                        Não! Atendo desde iniciantes absolutos até atletas avançados. A metodologia é adaptada ao seu nível atual, respeitando seus limites e potencializando seus pontos fortes.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors faq-btn">
+                        <span class="font-semibold text-slate-900">Qual a diferença entre presencial e online?</span>
+                        <i class="fas fa-chevron-down text-amber-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 text-slate-600 bg-white faq-content">
+                        No presencial (Campinas/SP), tenho contato direto para correção imediata da execução. Na consultoria online, você filma os exercícios e recebe feedback detalhado em até 24h, além de acompanhamento via app exclusivo — disponível para qualquer lugar do mundo.
+                    </div>
+                </div>
+
+                <div class="border border-slate-200 rounded-xl overflow-hidden">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition-colors faq-btn">
+                        <span class="font-semibold text-slate-900">Quanto tempo até ver resultados?</span>
+                        <i class="fas fa-chevron-down text-amber-500 transition-transform"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 text-slate-600 bg-white faq-content">
+                        Com consistência e seguindo as orientações nutricionais, clientes geralmente relatam mais disposição e mudanças na composição corporal já nas primeiras 4–6 semanas. Transformações significativas ocorrem entre 3 e 6 meses.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-amber-500/10 to-orange-500/10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="text-white space-y-8 reveal">
+                    <span class="text-amber-400 font-semibold tracking-wider uppercase text-sm">Contato</span>
+                    <h2 class="text-4xl md:text-5xl font-bold">
+                        Vamos começar sua <span class="text-amber-400">transformação</span>?
+                    </h2>
+                    <p class="text-xl text-slate-300">
+                        Preencha o formulário e entro em contato em até 24h para agendar sua avaliação gratuita.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">WhatsApp</p>
+                                <a href="https://wa.me/5519991236207" target="_blank"
+                                   class="text-lg font-semibold hover:text-amber-400 transition-colors">
+                                    (19) 99123-6207
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Email</p>
+                                <a href="mailto:teamhard.consultoria@gmail.com"
+                                   class="text-lg font-semibold hover:text-amber-400 transition-colors">
+                                    teamhard.consultoria@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-500/20 rounded-full flex items-center justify-center text-amber-400">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-400">Localização</p>
+                                <p class="text-lg font-semibold">Campinas, SP — Presencial e Online (mundo todo)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <a href="https://www.instagram.com/alemancilha" target="_blank"
+                           aria-label="Instagram do Ale Mancilha"
+                           class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-amber-500 hover:text-slate-900 transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl reveal">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-1">Aplicar para a Consultoria Team Hard</h3>
+                    <p class="text-slate-500 text-sm mb-6">Avaliação gratuita. Resposta em até 24h.</p>
+
+                    <form class="space-y-6" id="contact-form">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Nome *</label>
+                                <input type="text"
+                                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all"
+                                       placeholder="Seu nome completo" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">WhatsApp *</label>
+                                <input type="tel"
+                                       class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all"
+                                       placeholder="(19) 9 9999-9999" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email *</label>
+                            <input type="email"
+                                   class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all"
+                                   placeholder="seu@email.com" required>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Qual é o seu principal objetivo? *</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all" required>
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="emagrecimento">Emagrecimento</option>
+                                <option value="massa">Ganho de Massa Muscular</option>
+                                <option value="qualidade">Qualidade de Vida e Saúde</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">
+                                Mensagem <span class="text-slate-400 font-normal">(opcional)</span>
+                            </label>
+                            <textarea rows="3"
+                                      class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all resize-none"
+                                      placeholder="Conte um pouco sobre sua rotina e histórico..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                                class="w-full btn-primary py-4 rounded-xl text-slate-900 font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span id="btn-text">Enviar e Agendar</span>
+                            <i id="btn-icon" class="fas fa-paper-plane"></i>
+                            <i id="btn-loading" class="fas fa-spinner fa-spin hidden"></i>
+                        </button>
+
+                        <p class="text-xs text-slate-500 text-center">
+                            Você não paga nada pela avaliação. Se eu entender que não sou o profissional ideal para o seu caso, eu te falo com transparência.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-dumbbell text-sm"></i>
+                        </div>
+                        <span class="font-bold text-xl text-white">Ale Mancilha</span>
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-sm">
+                        Consultoria esportiva e personal training de alta performance.
+                        Treino inteligente. Resultado brutal.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#inicio"     class="hover:text-amber-400 transition-colors">Início</a></li>
+                        <li><a href="#sobre"      class="hover:text-amber-400 transition-colors">Sobre</a></li>
+                        <li><a href="#servicos"   class="hover:text-amber-400 transition-colors">Serviços</a></li>
+                        <li><a href="#contato"    class="hover:text-amber-400 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition-colors">Termos de Uso</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm">© 2026 Team Hard Consultoria Esportiva. Todos os direitos reservados.</p>
+                <p class="text-sm">Desenvolvido com <i class="fas fa-heart text-red-500 mx-1"></i> para resultados reais</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5519991236207" target="_blank"
+       class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-transform group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-full mr-3 bg-white text-slate-800 px-4 py-2 rounded-lg shadow-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Fale Conosco
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script>
+        // GSAP
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reveal
+        gsap.utils.toArray('.reveal').forEach(element => {
+            gsap.fromTo(element,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+
+        // Counters com sufixo
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            const suffix = stat.getAttribute('data-suffix') || '';
+
+            gsap.fromTo(stat,
+                { innerHTML: 0 },
+                {
+                    innerHTML: target,
+                    duration: 2,
+                    ease: "power2.out",
+                    snap: { innerHTML: 1 },
+                    scrollTrigger: {
+                        trigger: stat,
+                        start: "top 85%"
+                    },
+                    onUpdate: function () {
+                        stat.innerHTML = Math.round(stat.innerHTML) + suffix;
+                    }
+                }
+            );
+        });
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        const navLogoText = document.getElementById('nav-logo-text');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                navLogoText.classList.remove('text-white');
+                navLogoText.classList.add('text-slate-800');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                navLogoText.classList.add('text-white');
+                navLogoText.classList.remove('text-slate-800');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.fa-chevron-down');
+
+                content.classList.toggle('hidden');
+                icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+
+        // Form fake submit (feedback visual)
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            const btnLoading = document.getElementById('btn-loading');
+
+            btnText.textContent = 'Enviando...';
+            btnIcon.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+
+            setTimeout(() => {
+                btnText.textContent = 'Mensagem Enviada!';
+                btnLoading.classList.add('hidden');
+                btnIcon.className = 'fas fa-check';
+                btnIcon.classList.remove('hidden');
+
+                setTimeout(() => {
+                    btnText.textContent = 'Enviar e Agendar';
+                    btnIcon.className = 'fas fa-paper-plane';
+                    document.getElementById('contact-form').reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Smooth scroll manual (mantém compatibilidade)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Mantém links de "#" dentro da página com scroll suave
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
