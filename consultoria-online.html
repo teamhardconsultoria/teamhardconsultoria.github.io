@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Online Team Hard | Planos e Matrícula</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.4;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(251,191,36,0.3);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(15,23,42,0.18);
+        }
+
+        .badge-popular {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .smooth-scroll { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased smooth-scroll">
+
+    <!-- NAVBAR (versão simples, linkando de volta pro site principal) -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html#inicio" class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg flex items-center justify-center text-white">
+                        <i class="fas fa-dumbbell text-sm"></i>
+                    </div>
+                    <span class="font-bold text-lg text-white tracking-tight">Team Hard</span>
+                </a>
+                <div class="hidden sm:flex items-center gap-6 text-sm">
+                    <a href="index.html#sobre" class="text-slate-300 hover:text-amber-400 transition-colors">Sobre o Ale</a>
+                    <a href="index.html#resultados" class="text-slate-300 hover:text-amber-400 transition-colors">Resultados</a>
+                    <a href="index.html#contato" class="text-slate-300 hover:text-amber-400 transition-colors">Contato</a>
+                    <a href="#planos" class="btn-primary px-5 py-2 rounded-full text-slate-900 font-semibold">
+                        Ver Planos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO CONSULTORIA ONLINE -->
+    <section class="hero-bg pt-24 pb-16 sm:pb-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="reveal visible">
+                <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-xs font-semibold mb-4">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    Consultoria Online Team Hard · Atendimento mundial
+                </p>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
+                    Emagrecer, ganhar energia e se olhar no espelho com orgulho<br>
+                    sem viver preso à academia.
+                </h1>
+                <p class="text-base sm:text-lg text-slate-300 max-w-3xl mb-6">
+                    A consultoria online da Team Hard foi criada para homens e mulheres acima dos 30 que trabalham sentados,
+                    têm a rotina corrida e já cansaram de começar e parar. Você recebe treino e dieta no app, ajustes constantes
+                    e um acompanhamento real, sem protocolos genéricos.
+                </p>
+
+                <!-- Prova social rápida + ancoragem de valor -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <div class="flex -space-x-3">
+                            <div class="w-9 h-9 rounded-full border-2 border-slate-900 bg-cover bg-center"
+                                 style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop');"></div>
+                            <div class="w-9 h-9 rounded-full border-2 border-slate-900 bg-cover bg-center"
+                                 style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop');"></div>
+                            <div class="w-9 h-9 rounded-full border-2 border-slate-900 bg-cover bg-center"
+                                 style="background-image:url('https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=100&h=100&fit=crop');"></div>
+                        </div>
+                        <div class="text-xs text-slate-300 leading-snug">
+                            <span class="font-semibold text-white">+50 clientes</span> atendidos online<br>
+                            com acompanhamento próximo.
+                        </div>
+                    </div>
+                    <div class="text-xs text-slate-400">
+                        Planos a partir de <span class="font-semibold text-amber-400">R$ 249,00/mês</span>.
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="#planos" class="btn-primary px-8 py-3 rounded-full text-slate-900 font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2">
+                        Escolher meu plano
+                        <i class="fas fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="index.html#resultados" class="px-8 py-3 rounded-full border border-white/20 text-white text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 hover:bg-white/5 transition">
+                        Ver resultados dos alunos
+                        <i class="fas fa-images text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div class="reveal visible">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                        Como funciona a consultoria online na prática?
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base mb-4">
+                        Nada de planilha perdida no e-mail ou treino genérico de revista. Você vai ter um
+                        <strong>app completo de treino e dieta</strong>, feito sob medida para a sua rotina,
+                        com ajustes constantes e suporte direto comigo.
+                    </p>
+                    <ul class="space-y-3 text-slate-600 text-sm sm:text-base">
+                        <li class="flex items-start gap-3">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                            <div>
+                                <strong>Avaliação inicial completa</strong><br>
+                                Você preenche uma anamnese, envia fotos (se quiser) e conta sua rotina. Eu analiso tudo pessoalmente antes de montar o plano.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                            <div>
+                                <strong>Treino e dieta no app</strong><br>
+                                Você recebe treinos e plano alimentar dentro do aplicativo, com vídeos demonstrativos e tudo organizado por dia.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                            <div>
+                                <strong>Ajustes mensais (ou quinzenais)</strong><br>
+                                Dependendo do plano, fazemos reavaliações e ajustes para garantir evolução constante — sem platôs eternos.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="mt-1 w-2 h-2 rounded-full bg-amber-500 flex-shrink-0"></span>
+                            <div>
+                                <strong>Dúvidas pelo WhatsApp</strong><br>
+                                Nada de ficar perdido: pode mandar dúvida sobre treino e dieta, com resposta em horário comercial.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal visible">
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+                        <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-3">Para quem é</p>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-4">
+                            A consultoria é perfeita se você se reconhece em pelo menos um desses pontos:
+                        </h3>
+                        <ul class="space-y-3 text-sm text-slate-200">
+                            <li class="flex gap-3">
+                                <i class="fas fa-check text-emerald-400 mt-1"></i>
+                                Trabalha sentado o dia todo e chega em casa sem energia.
+                            </li>
+                            <li class="flex gap-3">
+                                <i class="fas fa-check text-emerald-400 mt-1"></i>
+                                Já fez dieta maluca, low-carb extrema ou restrição bizarra — e sempre volta ao ponto de partida.
+                            </li>
+                            <li class="flex gap-3">
+                                <i class="fas fa-check text-emerald-400 mt-1"></i>
+                                Tem medo de emagrecer e engordar tudo de novo depois.
+                            </li>
+                            <li class="flex gap-3">
+                                <i class="fas fa-check text-emerald-400 mt-1"></i>
+                                Quer resultado real, mas não quer viver em função da academia.
+                            </li>
+                        </ul>
+                        <p class="text-xs text-slate-400 mt-4">
+                            Se você é iniciante/intermediário e tem compromisso com o resultado, a consultoria foi feita pra você.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section id="planos" class="py-16 bg-slate-50 border-t border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <p class="text-amber-600 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2">Planos de Consultoria Online</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+                    Escolha o plano que combina com o seu momento
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Todos os planos incluem acesso ao app, treino e dieta estruturados e acompanhamento direto comigo.
+                    O que muda é o tempo de compromisso e a intensidade do acompanhamento.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+
+                <!-- Plano 1 - Ponto de Partida -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-md card-hover flex flex-col">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Plano 3 meses</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Ponto de Partida</h3>
+                    <p class="text-sm text-slate-500 mb-4">
+                        O plano ideal para quem quer começar a emagrecer com segurança, sem dieta maluca e sem viver em função da academia.
+                    </p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span class="text-3xl font-extrabold text-slate-900">R$ 299</span>
+                        <span class="text-xs text-slate-500 uppercase font-semibold">/ mês</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">Compromisso mínimo: 3 meses</p>
+
+                    <p class="text-sm text-slate-600 font-semibold mb-3">Perfeito para quem está travado no início.</p>
+                    <p class="text-sm text-slate-600 mb-4">
+                        Pensado para quem precisa começar do jeito certo, com estrutura simples e objetiva, mas com acompanhamento profissional.
+                    </p>
+
+                    <ul class="space-y-2 text-sm text-slate-600 mb-6 flex-1">
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Acesso completo ao app com planilha de treino e dieta.
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Biblioteca de vídeos dos exercícios.
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Reavaliação mensal online.
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Dúvidas pelo WhatsApp em horário comercial (resposta em até 24h).
+                        </li>
+                    </ul>
+
+                    <a href="https://chk.eduzz.com/69KD425V0O" target="_blank"
+                       class="btn-primary w-full py-3 rounded-xl text-center text-slate-900 font-semibold text-sm mt-auto">
+                        Começar com o Ponto de Partida
+                    </a>
+                </div>
+
+                <!-- Plano 2 - Consistência (destacado) -->
+                <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-7 shadow-2xl card-hover relative flex flex-col border border-emerald-400/40">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full badge-popular text-xs font-semibold text-white shadow-md">
+                        Mais escolhido
+                    </div>
+                    <p class="text-xs font-semibold text-emerald-300 uppercase tracking-wide mb-1">Plano 6 meses</p>
+                    <h3 class="text-xl font-bold mb-2">Consistência</h3>
+                    <p class="text-sm text-slate-200 mb-4">
+                        Para quem já tentou de tudo, mas nunca conseguiu manter: foco em hábitos, progresso contínuo e acompanhamento de perto.
+                    </p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span class="text-3xl font-extrabold">R$ 249</span>
+                        <span class="text-xs text-slate-300 uppercase font-semibold">/ mês</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-4">Compromisso mínimo: 6 meses</p>
+
+                    <p class="text-sm text-emerald-300 font-semibold mb-3">
+                        Ideal para quem sabe que o problema não é começar, é manter.
+                    </p>
+                    <p class="text-sm text-slate-200 mb-4">
+                        O foco aqui é criar e consolidar hábitos ao longo de mais tempo, com acompanhamento constante e visão de médio prazo.
+                    </p>
+
+                    <ul class="space-y-2 text-sm text-slate-100 mb-6 flex-1">
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1"></i>
+                            Tudo do plano <strong>Ponto de Partida</strong>.
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-400 mt-1"></i>
+                            Reavaliação mensal online com análise mais completa da evolução ao longo dos meses.
+                        </li>
+                    </ul>
+
+                    <a href="https://chk.eduzz.com/797V65KBWE" target="_blank"
+                       class="w-full py-3 rounded-xl text-center text-slate-900 font-semibold text-sm mt-auto bg-emerald-400 hover:bg-emerald-300 transition">
+                        Garantir minha Consistência
+                    </a>
+                    <p class="text-[11px] text-slate-400 text-center mt-2">
+                        Melhor custo-benefício para quem quer criar um novo estilo de vida.
+                    </p>
+                </div>
+
+                <!-- Plano 3 - Transformação -->
+                <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-md card-hover flex flex-col">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Plano 12 meses</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Transformação</h3>
+                    <p class="text-sm text-slate-500 mb-4">
+                        Para quem não quer só emagrecer, quer transformar a vida: mais energia, confiança e um físico que acompanha seus objetivos.
+                    </p>
+                    <div class="flex items-baseline gap-2 mb-3">
+                        <span class="text-3xl font-extrabold text-slate-900">R$ 449</span>
+                        <span class="text-xs text-slate-500 uppercase font-semibold">/ mês</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-4">Compromisso mínimo: 12 meses</p>
+
+                    <p class="text-sm text-slate-600 font-semibold mb-3">Para quem decidiu fazer uma virada completa.</p>
+                    <p class="text-sm text-slate-600 mb-4">
+                        Um ano inteiro de acompanhamento próximo para reprogramar corpo, saúde e autoestima em outro patamar.
+                    </p>
+
+                    <ul class="space-y-2 text-sm text-slate-600 mb-6 flex-1">
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Tudo do plano <strong>Consistência</strong>.
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Reavaliação quinzenal através de vídeo-chamada (15 minutos).
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fas fa-check text-emerald-500 mt-1"></i>
+                            Avaliação de exames: análise e orientações com base em exames laboratoriais.
+                        </li>
+                    </ul>
+
+                    <a href="https://chk.eduzz.com/801VKN3R97" target="_blank"
+                       class="btn-primary w-full py-3 rounded-xl text-center text-slate-900 font-semibold text-sm mt-auto">
+                        Entrar no plano Transformação
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Aviso de compromisso -->
+            <p class="text-[11px] text-slate-500 text-center mt-6 max-w-2xl mx-auto">
+                *Valores mensais. A cobrança e as condições de pagamento são processadas com segurança pela Eduzz.
+                Ao clicar em "Comprar", você será direcionado para a página oficial do plano.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL RESUMIDA -->
+    <section class="py-16 bg-white border-t border-slate-200/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div class="reveal visible">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">
+                        O que meus alunos online estão conquistando
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base mb-4">
+                        A consultoria Team Hard já ajudou alunos e alunas a perderem mais de 10 kg, ganharem massa muscular
+                        depois dos 30 e voltarem a ter orgulho de tirar a camisa — mesmo com rotina de trabalho puxada.
+                    </p>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-3">
+                            <i class="fas fa-arrow-trend-down text-emerald-500 mt-1"></i>
+                            <span><strong>Emagrecimento médio de 4–8 kg</strong> nos primeiros 3 meses para quem segue o plano.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-heart text-rose-500 mt-1"></i>
+                            <span>Relatos de <strong>mais disposição</strong>, menos dor nas costas e melhor sono em poucas semanas.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-user-check text-amber-500 mt-1"></i>
+                            <span>Clientes que nunca tinham conseguido manter mais de 2 meses hoje <strong>treinam o ano todo</strong>.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="space-y-4 reveal visible">
+                    <div class="border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <p class="text-xs text-amber-500 font-semibold mb-1 uppercase tracking-wide">Depoimento</p>
+                        <p class="text-sm text-slate-700 italic mb-3">
+                            "Há 5 meses com o uso do app, eliminação em torno de 17 kg sentindo a diferença diária.
+                            Treinos com vídeos me deram segurança nas execuções. Hoje me sinto outra pessoa."
+                        </p>
+                        <p class="text-xs text-slate-500">Cesar E. · Pedagogo, 42 anos · Consultoria Online</p>
+                    </div>
+                    <div class="border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <p class="text-xs text-amber-500 font-semibold mb-1 uppercase tracking-wide">Depoimento</p>
+                        <p class="text-sm text-slate-700 italic mb-3">
+                            "Consegui ganhar massa magra e definir o corpo sem perder a feminilidade.
+                            O acompanhamento me fez manter o foco mesmo com rotina corrida."
+                        </p>
+                        <p class="text-xs text-slate-500">Talita S. · Empresária, 32 anos · Consultoria Online</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ RESUMO -->
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <p class="text-amber-600 font-semibold tracking-wider uppercase text-xs sm:text-sm mb-2">Dúvidas rápidas</p>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Antes de escolher seu plano</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="border border-slate-200 bg-white rounded-xl p-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-slate-900">
+                        <span>Sou totalmente iniciante. Posso fazer a consultoria online?</span>
+                        <i class="fas fa-chevron-down text-amber-500 text-xs ml-3"></i>
+                    </summary>
+                    <div class="mt-3 text-sm text-slate-600">
+                        Sim. Atendo desde iniciantes absolutos até alunos avançados. O app tem vídeos demonstrativos,
+                        e você pode mandar vídeos dos exercícios para correção. O plano é montado respeitando seu nível atual.
+                    </div>
+                </details>
+
+                <details class="border border-slate-200 bg-white rounded-xl p-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-slate-900">
+                        <span>Posso trocar de plano depois que começar?</span>
+                        <i class="fas fa-chevron-down text-amber-500 text-xs ml-3"></i>
+                    </summary>
+                    <div class="mt-3 text-sm text-slate-600">
+                        Sim. Se durante o acompanhamento fizer sentido estender (por exemplo, migrar do Ponto de Partida
+                        para o Consistência), alinhamos essa mudança diretamente após o término do ciclo atual.
+                    </div>
+                </details>
+
+                <details class="border border-slate-200 bg-white rounded-xl p-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-slate-900">
+                        <span>O pagamento é seguro?</span>
+                        <i class="fas fa-chevron-down text-amber-500 text-xs ml-3"></i>
+                    </summary>
+                    <div class="mt-3 text-sm text-slate-600">
+                        Sim. O pagamento é processado pela Eduzz, uma das maiores plataformas de pagamento do Brasil,
+                        com toda a segurança necessária. Eu não tenho acesso direto aos dados do seu cartão.
+                    </div>
+                </details>
+
+                <details class="border border-slate-200 bg-white rounded-xl p-4">
+                    <summary class="flex justify-between items-center cursor-pointer text-sm font-semibold text-slate-900">
+                        <span>Quanto tempo depois de pagar eu começo?</span>
+                        <i class="fas fa-chevron-down text-amber-500 text-xs ml-3"></i>
+                    </summary>
+                    <div class="mt-3 text-sm text-slate-600">
+                        Assim que o pagamento for confirmado pela Eduzz, você recebe as instruções iniciais no e-mail
+                        cadastrado e meu contato para iniciarmos a avaliação. Em geral, em até 24h você já está com o processo em andamento.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-14 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-3">
+                Próximo mês você pode estar reclamando de novo…<br class="hidden sm:block">
+                ou olhando fotos de antes e depois.
+            </h2>
+            <p class="text-sm sm:text-base text-slate-300 mb-6">
+                Se fez sentido pra você, escolha um plano e dá o primeiro passo agora.
+                Eu cuido do resto junto com você, etapa por etapa.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-3">
+                <a href="#planos" class="btn-primary px-7 py-3 rounded-full text-slate-900 font-semibold text-sm sm:text-base inline-flex items-center justify-center gap-2">
+                    Ver planos e garantir minha vaga
+                    <i class="fas fa-arrow-down text-xs"></i>
+                </a>
+                <a href="https://wa.me/5519991236207" target="_blank"
+                   class="px-7 py-3 rounded-full border border-white/20 text-white text-sm sm:text-base font-medium inline-flex items-center justify-center gap-2 hover:bg-white/5 transition">
+                    Falar com o Ale no WhatsApp
+                    <i class="fab fa-whatsapp text-base"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
