@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){
+        n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)
+      };
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1545162687327415');
+    fbq('track','PageView');
+    fbq('track','Lead'); /* Evento de conversão — formulário enviado */
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1545162687327415&ev=Lead&noscript=1">
+  </noscript>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PZ55T7GM');
+  </script>
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZX97ZZZ8N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NZX97ZZZ8N');
+    /* Evento de conversão para GA4 */
+    gtag('event', 'generate_lead', {
+      event_category: 'formulario',
+      event_label: 'consultoria_team_hard'
+    });
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Obrigado! | Team Hard — Ale Mancilha</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --gold:        #C0A080;
+      --gold-light:  #D4B896;
+      --amber:       #F59E0B;
+      --dark:        #0A0F1A;
+      --dark-2:      #111827;
+    }
+
+    * { font-family: 'Inter', sans-serif; box-sizing: border-box; }
+
+    h1, h2, .heading-serif { font-family: 'Playfair Display', serif; }
+
+    body {
+      background: linear-gradient(135deg, #0A0F1A 0%, #111827 50%, #0A0F1A 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 40%, #C0A080 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glass {
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(192,160,128,.18);
+    }
+
+    .badge-gold {
+      background: linear-gradient(135deg,rgba(192,160,128,.15),rgba(192,160,128,.05));
+      border: 1px solid rgba(192,160,128,.35);
+      color: var(--gold-light);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 9999px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 60%, #D97706 100%);
+      color: #0A0F1A;
+      font-weight: 700;
+      border-radius: 9999px;
+      transition: all .3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(245,158,11,.4);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 9999px;
+      transition: all .3s ease;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(37,211,102,.35);
+    }
+
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: .4;
+    }
+
+    /* Checkmark animado */
+    @keyframes scaleIn {
+      0%   { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes checkDraw {
+      from { stroke-dashoffset: 100; }
+      to   { stroke-dashoffset: 0; }
+    }
+
+    .check-circle {
+      animation: scaleIn .6s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    .check-path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: checkDraw .5s ease .4s forwards;
+    }
+
+    /* Blob decorativo */
+    .blob {
+      position: absolute;
+      filter: blur(90px);
+      opacity: .18;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    /* Card de próximo passo */
+    .step-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(192,160,128,.14);
+      border-radius: 16px;
+      transition: all .3s ease;
+    }
+    .step-card:hover {
+      border-color: rgba(192,160,128,.35);
+      background: rgba(255,255,255,.07);
+      transform: translateY(-3px);
+    }
+
+    /* Contador regressivo */
+    #countdown {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    /* Footer mínimo */
+    .footer-min {
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- GTM noscript -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ55T7GM"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <!-- Blobs decorativos -->
+  <div class="blob bg-amber-500 w-96 h-96 -top-20 -left-20 absolute" aria-hidden="true"></div>
+  <div class="blob bg-orange-600 w-72 h-72 bottom-10 right-0 absolute"
+       style="animation-delay:3s;" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       CONTEÚDO PRINCIPAL
+       ============================================================ -->
+  <main class="flex-1 flex items-center justify-center px-4 py-16 relative z-10">
+    <div class="max-w-2xl w-full text-center space-y-8">
+
+      <!-- Ícone animado -->
+      <div class="flex justify-center">
+        <div class="check-circle w-24 h-24 rounded-full flex items-center justify-center"
+             style="background: linear-gradient(135deg,#F59E0B,#D97706);">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
+               xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="check-path"
+                  d="M8 22 L18 33 L36 12"
+                  stroke="#0A0F1A" stroke-width="4"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Badge -->
+      <div class="flex justify-center">
+        <span class="badge-gold">Mensagem recebida com sucesso</span>
+      </div>
+
+      <!-- Título -->
+      <div>
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight mb-3">
+          Agora é com a<br>
+          <span class="gradient-text">Team Hard.</span>
+        </h1>
+        <p class="text-lg text-slate-300 leading-relaxed max-w-lg mx-auto">
+          Recebi suas informações e vou analisar seu perfil com atenção.
+          Em até <strong class="text-amber-300">24 horas</strong> entro em contato
+          pelo WhatsApp ou e-mail para conversarmos sobre seu plano.
+        </p>
+      </div>
+
+      <div class="gold-divider max-w-xs mx-auto"></div>
+
+      <!-- Próximos passos -->
+      <div class="glass rounded-2xl p-6 md:p-8 text-left space-y-4">
+        <h2 class="text-base font-bold text-white mb-5 text-center tracking-wide uppercase"
+            style="font-size:.8rem; letter-spacing:.1em; color: var(--gold-light);">
+          O que acontece agora
+        </h2>
+
+        <div class="step-card p-4 flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-slate-900 font-black text-sm"
+               style="background: linear-gradient(135deg,#FCD34D,#F59E0B);">1</div>
+          <div>
+            <p class="text-white font-semibold text-sm">Análise do seu perfil</p>
+            <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">
+              Leio suas respostas com atenção para entender sua rotina, histórico e objetivo real antes de falar com você.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card p-4 flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-slate-900 font-black text-sm"
+               style="background: linear-gradient(135deg,#FCD34D,#F59E0B);">2</div>
+          <div>
+            <p class="text-white font-semibold text-sm">Contato em até 24h</p>
+            <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">
+              Entro em contato pelo WhatsApp ou e-mail para agendar uma conversa rápida e sem compromisso.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-card p-4 flex items-start gap-4">
+          <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-slate-900 font-black text-sm"
+               style="background: linear-gradient(135deg,#FCD34D,#F59E0B);">3</div>
+          <div>
+            <p class="text-white font-semibold text-sm">Sua transformação começa</p>
+            <p class="text-slate-400 text-xs mt-0.5 leading-relaxed">
+              Se a consultoria fizer sentido para você, montamos o plano na semana e você já começa a semana seguinte.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA WhatsApp -->
+      <div class="space-y-3">
+        <p class="text-slate-400 text-sm">
+          Prefere falar agora? Me chama direto no WhatsApp:
+        </p>
+        <a id="wa-btn"
+           href="#"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-whatsapp px-8 py-4 text-base inline-flex items-center gap-3">
+          <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
+          Falar com o Ale agora
+        </a>
+      </div>
+
+      <!-- Voltar ao site -->
+      <div>
+        <a href="https://teamhardconsultoria.github.io/"
+           class="btn-primary px-7 py-3 text-sm inline-flex items-center gap-2">
+          <i class="fas fa-arrow-left text-xs" aria-hidden="true"></i>
+          Voltar ao site
+        </a>
+      </div>
+
+      <!-- Contador regressivo (opcional, redireciona em 60s) -->
+      <p class="text-xs text-slate-500 mt-2">
+        Você será redirecionado automaticamente ao site em
+        <span id="countdown">60</span>s
+      </p>
+
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER MÍNIMO
+       ============================================================ -->
+  <footer class="footer-min py-6 text-center relative z-10">
+    <div class="flex items-center justify-center gap-2 mb-2">
+      <div class="w-7 h-7 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg
+                  flex items-center justify-center text-white">
+        <i class="fas fa-dumbbell text-xs" aria-hidden="true"></i>
+      </div>
+      <span class="font-bold text-white text-sm">Ale Mancilha</span>
+      <span class="text-amber-400/60 text-xs tracking-widest uppercase">· Team Hard</span>
+    </div>
+    <p class="text-slate-600 text-xs">
+      © 2026 Team Hard Consultoria Esportiva. Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script>
+    // WhatsApp ofuscado
+    const ddi = '55';
+    const ddd = '19';
+    const num = '991236207';
+    const msg = encodeURIComponent('Olá Ale! Acabei de preencher o formulário do site. Pode me ajudar?');
+    const waLink = `https://wa.me/${ddi}${ddd}${num}?text=${msg}`;
+    document.getElementById('wa-btn').href = waLink;
+
+    // Contador regressivo + redirect automático
+    let seconds = 60;
+    const countdownEl = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      seconds--;
+      if (countdownEl) countdownEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = 'https://teamhardconsultoria.github.io/';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
