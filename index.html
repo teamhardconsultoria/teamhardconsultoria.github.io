@@ -2363,21 +2363,52 @@
       atualizarROI();
     }
 
-    // Form feedback (visual) — o Formspree cuida do envio/redirect
-    const form    = document.getElementById('contact-form');
-    const btn     = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnIcon = document.getElementById('btn-icon');
-    const btnLoad = document.getElementById('btn-loading');
+// Form — envio via AJAX para redirecionar para obrigado.html
+const form    = document.getElementById('contact-form');
+const btn     = document.getElementById('submit-btn');
+const btnText = document.getElementById('btn-text');
+const btnIcon = document.getElementById('btn-icon');
+const btnLoad = document.getElementById('btn-loading');
 
-    if (form && btn && btnText && btnIcon && btnLoad) {
-      form.addEventListener('submit', function () {
-        btn.disabled = true;
-        btnText.textContent = 'Enviando...';
-        btnIcon.classList.add('hidden');
-        btnLoad.classList.remove('hidden');
-      });
+if (form && btn && btnText && btnIcon && btnLoad) {
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault(); // impede o Formspree de redirecionar para a página deles
+
+    // Validação nativa do HTML
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
     }
+
+    // Visual de loading
+    btn.disabled = true;
+    btnText.textContent = 'Enviando...';
+    btnIcon.classList.add('hidden');
+    btnLoad.classList.remove('hidden');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Sucesso — vai para sua página de obrigado
+        window.location.href = 'https://teamhardconsultoria.github.io/obrigado.html';
+      } else {
+        throw new Error('Erro');
+      }
+    } catch (error) {
+      // Erro — restaura o botão e avisa o usuário
+      btn.disabled = false;
+      btnText.textContent = 'Enviar e Agendar';
+      btnIcon.classList.remove('hidden');
+      btnLoad.classList.add('hidden');
+      alert('Ops! Algo deu errado. Tente novamente ou entre em contato pelo WhatsApp.');
+    }
+  });
+}
 
     // Scroll suave extra (compatibilidade)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
