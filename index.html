@@ -482,6 +482,16 @@
       z-index:200;transition:width .1s;
     }
   </style>
+
+    <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2321612');
+  </script>
+  <!-- End MailerLite Universal -->
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
@@ -1819,165 +1829,109 @@
             </div>
           </div>
 
-          <form id="contact-form" class="space-y-6"
-                action="https://formspree.io/f/mwvyojzj"
-                method="POST" novalidate>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="name" class="block text-xs font-medium text-slate-700 mb-2">
-                  Nome *
-                </label>
-                <input type="text" id="name" name="name"
-                       class="w-full px-4 py-3 rounded-xl border border-slate-300
-                              focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                              outline-none text-sm"
-                       placeholder="Seu nome completo" required>
-              </div>
-          <div>
-  <label for="whatsapp" class="block text-xs font-medium text-slate-700 mb-2">
-    WhatsApp *
-  </label>
-  <input
-    type="tel"
-    id="whatsapp"
-    name="whatsapp"
-    class="w-full px-4 py-3 rounded-xl border border-slate-300
-           focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-           outline-none text-sm"
-    placeholder="(19) 99999-9999"
-    inputmode="numeric"
-    maxlength="15"
-    required
-  >
-</div>
-            </div>
+          <!-- MailerLite Form -->
+<style>
+  /* Wrapper do formulário MailerLite */
+  .ml-embedded {
+    width: 100%;
+  }
 
-            <div>
-              <label for="email" class="block text-xs font-medium text-slate-700 mb-2">
-                Email *
-              </label>
-              <input type="email" id="email" name="email"
-                     class="w-full px-4 py-3 rounded-xl border border-slate-300
-                            focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                            outline-none text-sm"
-                     placeholder="seu@email.com" required>
-            </div>
+  /* Labels */
+  .ml-embedded .ml-form-embedBody .ml-form-fieldRow label,
+  .ml-embedded label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+  }
 
-            <div>
-              <label class="block text-xs font-medium text-slate-700 mb-2">
-                Qual é o seu principal objetivo? *
-              </label>
-              <select name="objetivo"
-                      class="w-full px-4 py-3 rounded-xl border border-slate-300
-                             focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                             outline-none text-sm"
-                      required>
-                <option value="" disabled selected>Selecione...</option>
-                <option value="emagrecimento">Emagrecer com consistência</option>
-                <option value="massa">Ganhar massa muscular</option>
-                <option value="qualidade">Qualidade de vida e saúde</option>
-              </select>
-            </div>
+  /* Inputs, selects e textareas */
+  .ml-embedded input[type="text"],
+  .ml-embedded input[type="email"],
+  .ml-embedded input[type="tel"],
+  .ml-embedded select,
+  .ml-embedded textarea {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    font-size: 14px !important;
+    color: #1e293b !important;
+    background: #ffffff !important;
+    outline: none !important;
+    transition: border-color .2s, box-shadow .2s !important;
+    font-family: 'Inter', sans-serif !important;
+  }
 
-            <div>
-              <label class="block text-xs font-medium text-slate-700 mb-3">
-                Qual situação mais parece com você hoje? *
-              </label>
-              <div class="space-y-2">
-                <label class="option-card">
-                  <input type="radio" name="situacao" value="plato" class="text-amber-500" required>
-                  <span class="text-xs text-slate-700">
-                    Já emagreci, mas travei — parei de perder peso
-                  </span>
-                </label>
-                <label class="option-card">
-                  <input type="radio" name="situacao" value="reganho" class="text-amber-500">
-                  <span class="text-xs text-slate-700">
-                    Tenho medo de engordar tudo de novo
-                  </span>
-                </label>
-                <label class="option-card">
-                  <input type="radio" name="situacao" value="tempo" class="text-amber-500">
-                  <span class="text-xs text-slate-700">
-                    Não consigo seguir treino/dieta pela falta de tempo
-                  </span>
-                </label>
-                <label class="option-card">
-                  <input type="radio" name="situacao" value="burnout" class="text-amber-500">
-                  <span class="text-xs text-slate-700">
-                    Estou cansado de dieta maluca e efeito sanfona
-                  </span>
-                </label>
-                <label class="option-card">
-                  <input type="radio" name="situacao" value="inicio" class="text-amber-500">
-                  <span class="text-xs text-slate-700">
-                    Estou começando do zero e não sei por onde começar
-                  </span>
-                </label>
-              </div>
-            </div>
+  .ml-embedded input:focus,
+  .ml-embedded select:focus,
+  .ml-embedded textarea:focus {
+    border-color: #F59E0B !important;
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.15) !important;
+  }
 
-            <div>
-              <label class="block text-xs font-medium text-slate-700 mb-2">
-                Onde você treina hoje? *
-              </label>
-              <select name="local_treino"
-                      class="w-full px-4 py-3 rounded-xl border border-slate-300
-                             focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                             outline-none text-sm"
-                      required>
-                <option value="" disabled selected>Selecione...</option>
-                <option value="academia">Academia</option>
-                <option value="casa">Em casa</option>
-                <option value="nao_treino">Ainda não treino</option>
-              </select>
-            </div>
+  /* Botão de submit */
+  .ml-embedded input[type="submit"],
+  .ml-embedded button[type="submit"],
+  .ml-embedded .ml-form-embedSubmit button {
+    width: 100% !important;
+    padding: 14px 24px !important;
+    border-radius: 9999px !important;
+    background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 60%, #D97706 100%) !important;
+    color: #0A0F1A !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all .3s ease !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: .01em !important;
+  }
 
-            <div>
-              <label class="block text-xs font-medium text-slate-700 mb-2">
-                Sua faixa etária *
-              </label>
-              <select name="idade"
-                      class="w-full px-4 py-3 rounded-xl border border-slate-300
-                             focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                             outline-none text-sm"
-                      required>
-                <option value="" disabled selected>Selecione...</option>
-                <option value="menos30">Menos de 30 anos</option>
-                <option value="30-39">30 a 39 anos</option>
-                <option value="40-49">40 a 49 anos</option>
-                <option value="50+">50 anos ou mais</option>
-              </select>
-            </div>
+  .ml-embedded input[type="submit"]:hover,
+  .ml-embedded button[type="submit"]:hover,
+  .ml-embedded .ml-form-embedSubmit button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 35px rgba(245,158,11,.4) !important;
+  }
 
-            <div>
-              <label class="block text-xs font-medium text-slate-700 mb-2">
-                Mensagem <span class="text-slate-400 font-normal">(opcional)</span>
-              </label>
-              <textarea name="mensagem" rows="3"
-                        class="w-full px-4 py-3 rounded-xl border border-slate-300
-                               focus:border-amber-500 focus:ring-2 focus:ring-amber-200
-                               outline-none text-sm resize-none"
-                        placeholder="Conte um pouco sobre sua rotina, histórico e se já treinou com alguém antes..."></textarea>
-            </div>
+  /* Remove fundo/borda padrão do wrapper */
+  .ml-embedded .ml-form-embedWrapper,
+  .ml-embedded .ml-form-embedBody {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
 
-            <input type="hidden" name="_subject" value="Nova aplicação — Consultoria Team Hard">
-            <input type="hidden" name="_next" value="https://teamhardconsultoria.github.io/obrigado.html">
-            <input type="text" name="_gotcha" style="display:none">
+  /* Espaçamento entre campos */
+  .ml-embedded .ml-form-fieldRow {
+    margin-bottom: 14px !important;
+  }
 
-            <button type="submit" id="submit-btn"
-                    class="w-full btn-primary py-3.5 rounded-xl text-sm font-bold
-                           hover:shadow-lg transition-all flex items-center justify-center gap-2">
-              <span id="btn-text">Enviar e Agendar</span>
-              <i id="btn-icon" class="fas fa-paper-plane text-xs" aria-hidden="true"></i>
-              <i id="btn-loading" class="fas fa-spinner fa-spin hidden text-xs" aria-hidden="true"></i>
-            </button>
+  /* Mensagem de sucesso */
+  .ml-embedded .ml-form-successBody {
+    text-align: center !important;
+    padding: 32px 16px !important;
+  }
+  .ml-embedded .ml-form-successContent h4 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #0A0F1A !important;
+  }
+  .ml-embedded .ml-form-successContent p {
+    font-size: 14px !important;
+    color: #64748b !important;
+  }
+</style>
 
-            <p class="text-[11px] text-slate-500 text-center mt-2">
-              Você não paga nada pela avaliação. Se eu entender que não sou o profissional
-              ideal para o seu caso, eu te falo com transparência.
-            </p>
-          </form>
+<div class="ml-embedded" data-form="QuHpeq"></div>
+
+<p class="text-[11px] text-slate-500 text-center mt-4">
+  Você não paga nada pela avaliação. Se eu entender que não sou o profissional
+  ideal para o seu caso, eu te falo com transparência.
+</p>
         </div>
       </div>
     </div>
