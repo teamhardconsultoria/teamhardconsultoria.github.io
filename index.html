@@ -2323,52 +2323,111 @@
       atualizarROI();
     }
 
-// Form — envio via AJAX para redirecionar para obrigado.html
-const form    = document.getElementById('contact-form');
-const btn     = document.getElementById('submit-btn');
-const btnText = document.getElementById('btn-text');
-const btnIcon = document.getElementById('btn-icon');
-const btnLoad = document.getElementById('btn-loading');
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form    = document.getElementById('contact-form');
+  const btn     = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnIcon = document.getElementById('btn-icon');
+  const btnLoad = document.getElementById('btn-loading');
 
-if (form && btn && btnText && btnIcon && btnLoad) {
+  if (!form || !btn || !btnText || !btnIcon || !btnLoad) return;
+
   form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // impede o Formspree de redirecionar para a página deles
+    e.preventDefault();
 
-    // Validação nativa do HTML
+    // Validação nativa
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    // Visual de loading
+    // Coleta os dados do form
+    const formData = new FormData(form);
+    const nome        = formData.get('name') || '';
+    const email       = formData.get('email') || '';
+    const whatsapp    = formData.get('whatsapp') || '';
+    const objetivo    = formData.get('objetivo') || '';
+    const situacao    = formData.get('situacao') || '';
+    const localTreino = formData.get('local_treino') || '';
+    const idade       = formData.get('idade') || '';
+    const mensagem    = formData.get('mensagem') || '';
+
+    // Segurança básica: precisa ter e-mail
+    if (!email) {
+      alert('Por favor, preencha seu e-mail.');
+      return;
+    }
+
+    // Loading visual
     btn.disabled = true;
     btnText.textContent = 'Enviando...';
     btnIcon.classList.add('hidden');
     btnLoad.classList.remove('hidden');
 
     try {
-      const response = await fetch(form.action, {
+      // 1) Enviar para MailerLite (API v2)
+      const apiKey   = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiOTBiMDI1MTk2Yjk0Zjk5ZDRmNTdiZDA3N2I0YjI2ZDYzMGQyZTg4YmYwZWY0Yjg5ZDc5ODhjMmRiNGFmMzAzZTdhZThlNDg2MjRjYjNjZDYiLCJpYXQiOjE3NzgwMzIyOTEuODczNDEyLCJuYmYiOjE3NzgwMzIyOTEuODczNDE1LCJleHAiOjQ5MzM3MDU4OTEuODY2MTc4LCJzdWIiOiIyMzQxMDA1Iiwic2NvcGVzIjpbXX0.lYiP_pV5BRwQ8oJv6LZzs4ioqCVzeZ-wAPKcru-pdb-nv2w5Yw9SP1W-Zmw4yI8PLRqZeEfYteznEAtj_pv7WiYzrPpteW7X4i_g_mr7B-ZvmQjA9A0GeGEAHvY2sJD66yXvUKkxpEkhr1PXDuLsN7HKLpYeNemBGMNznJ8CmaA0_M2nn4d5q6ONFgGqArGf8C5Ts5-REOJ_PU14BMJnqVs3KUC6hV6nF95QcoaW7oz1g7OU1UoCLU6pj0USqVZa-xtB_0fj0iJN1ieSoNj2NudTs5zEdV2nCPU3cQ79NoM5FuPrAqTskYZOLlFCYiv0FstbvBdUJCx860JwRDVewkFzZZyDMeDNWDDzrMWaJppDFht7FQBQwYV-dl1d5ir8WR4B41eMd_urRcZwYvnNh_R07sm9DFR5j2sfmWdDZsI9fbNCW8FWItmT4Ywfq6CNSFtsyGVMb6HPvWaxlK_ZYeDtJSYborJkEGEdiToGbk1HST5tgCIVT1u0s4hEaPDaN6pKwHuAJSG-CSykIAnX8QoiK1ScjMb-6-VTx4BSD05wK7Bh19KSZ_7ZnF2JjFd-NOvnggxMXGa3-kwvTo9PwH6hfkh2fN7jJ2Z3C5FayZ_xOnFGeJ8zCpYQ5LlhEmGbYuznMx76huF-j_zFupqnYinMs9jIGxJRevWPQqnM4Cg';           // <-- SUBSTITUIR
+      const groupId  = '186675934472963988';          // <-- SUBSTITUIR
+      const apiUrl   = 'https://connect.mailerlite.com/api/subscribers';
+
+      const payload = {
+        email: email,
+        fields: {
+          name: nome,
+          whatsapp: whatsapp,
+          objetivo: objetivo,
+          situacao: situacao,
+          local_treino: localTreino,
+          idade: idade,
+          mensagem: mensagem
+        },
+        groups: [groupId]
+      };
+
+      const mlResponse = await fetch(apiUrl, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
-        // Sucesso — vai para sua página de obrigado
-        window.location.href = 'https://teamhardconsultoria.github.io/obrigado.html';
-      } else {
-        throw new Error('Erro');
+      // Se já existir contato, MailerLite pode retornar 409 (CONFLICT). Vamos tratar como ok.
+      if (!mlResponse.ok && mlResponse.status !== 409) {
+        console.error('Erro MailerLite:', await mlResponse.text());
+        throw new Error('Erro ao cadastrar no MailerLite');
       }
+
+      // 2) (Opcional) Se você ainda quiser receber por e-mail (Formspree)
+      //    Descomente o bloco abaixo e deixe o action do form apontando para o Formspree
+      /*
+      const fsResponse = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!fsResponse.ok) {
+        console.error('Erro Formspree:', await fsResponse.text());
+      }
+      */
+
+      // Sucesso → Redireciona para página de obrigado
+      window.location.href = 'https://teamhardconsultoria.github.io/obrigado.html';
+
     } catch (error) {
-      // Erro — restaura o botão e avisa o usuário
+      console.error(error);
+      alert('Ops! Algo deu errado. Tente novamente ou fale comigo pelo WhatsApp.');
       btn.disabled = false;
       btnText.textContent = 'Enviar e Agendar';
       btnIcon.classList.remove('hidden');
       btnLoad.classList.add('hidden');
-      alert('Ops! Algo deu errado. Tente novamente ou entre em contato pelo WhatsApp.');
     }
   });
-}
+});
+</script>
 
     // Scroll suave extra (compatibilidade)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
